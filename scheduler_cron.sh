@@ -8,7 +8,7 @@ DATE=$(date +%Y%m%d%H%M)
 NEXT=$(head -n 1 $JOBFILE)
 if [ ! -e $LOCKFILE ] && [ ! -z $NEXT ]
   then
-    echo "" > $LOCKFILE
+    echo $NEXT > $LOCKFILE
 
     tail -n +2 $JOBFILE > /tmp/tail.tmp && mv -f /tmp/tail.tmp $JOBFILE
 
