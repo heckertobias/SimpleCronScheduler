@@ -36,10 +36,6 @@ else
   echo "SCRIPTDIR=/var/scheduler/scripts/" >> $DIR/config.sh
   echo "OUTPUTDIR=/var/scheduler/output/" >> $DIR/config.sh
   
-  # get useraccout to run cron-job
-  echo "Enter useraccout to run scripts with:"
-  read user
-  
   # make dirs and files
   mkdir /var/scheduler
   mkdir /var/scheduler/scripts
@@ -50,5 +46,5 @@ else
   chmod +x $DIR/scheduler.sh
   ln -s $DIR/scheduler.sh /usr/local/bin/scheduler
   chmod +x $DIR/scheduler_cron.sh
-  echo "* * * * * $user $DIR/scheduler_cron.sh > /dev/null 2>&1" >> /etc/cron.d/scheduler
+  echo "* * * * * root $DIR/scheduler_cron.sh > /dev/null 2>&1" >> /etc/cron.d/scheduler
 fi
