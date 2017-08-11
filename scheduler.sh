@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Scheduler controll script
+# Type --help or -h to get information about usage
+
 source ./config.sh
 
 if [ $# -eq 1 ]
