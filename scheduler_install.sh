@@ -5,7 +5,7 @@
 
 # TODO: make 
 
-DIR=$(dirname "${VAR}")
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ $# -eq 1 ] && [ $1 = "remove" ]
   then
@@ -13,7 +13,7 @@ if [ $# -eq 1 ] && [ $1 = "remove" ]
     read $yn
     
     # Uninstall
-    if [ $yn = "y" ]
+    if [ "$yn" = "y" ]
       then
         # remove scripts
         rm -f /etc/cron.d/scheduler
@@ -30,12 +30,11 @@ else
   # setup email-adress and other settings
   echo "Enter your EMail-Address for Notifications:"
   read $email
-  echo "EMAIL=$email" >> $DIR/config.sh
+  echo "EMAIL=${email}" >> $DIR/config.sh
   echo "JOBFILE=/var/scheduler/scheduler.jobs" >> $DIR/config.sh
   echo "LOCKFILE=/tmp/scheduler.lock" >> $DIR/config.sh
   echo "SCRIPTDIR=/var/scheduler/scripts/" >> $DIR/config.sh
   echo "OUTPUTDIR=/var/scheduler/output/" >> $DIR/config.sh
-  
   
   # get useraccout to run cron-job
   echo "Enter useraccout to run scripts with:"
@@ -51,5 +50,5 @@ else
   chmod +x $DIR/scheduler.sh
   ln -s $DIR/scheduler.sh /usr/local/bin/scheduler
   chmod +x $DIR/scheduler_cron.sh
-  echo "* * * * * $user $DIR/scheduler_cron.sh > /dev/null 2>&1" >> /etc/cron.d/scheduler
+  echo "* * * * * ${user} $DIR/scheduler_cron.sh > /dev/null 2>&1" >> /etc/cron.d/scheduler
 fi

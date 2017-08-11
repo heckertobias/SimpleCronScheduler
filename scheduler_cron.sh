@@ -18,5 +18,4 @@ if [ ! -e $LOCKFILE ] && [ ! -z $NEXT ]
     $SCRIPTFILE >> $LOGFILE
     cat $(echo "$LOGFILE") | mail -s "Job $NEXT done" $EMAIL
     rm $LOCKFILE
-
 fi
