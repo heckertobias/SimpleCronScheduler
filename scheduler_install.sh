@@ -22,6 +22,7 @@ if [ $# -eq 1 ] && [ $1 = "remove" ]
         # remove dirs and files
         rm -rf /var/scheduler
         rm -f /tmp/scheduler.lock
+        rm -f $DIR/config.sh
     fi
 else
   # Install
