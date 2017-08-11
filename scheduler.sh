@@ -18,7 +18,7 @@ if [ $# -eq 1 ]
     if [ $1 = "reset" ]
       then
         echo "" > $JOBFILE
-        kill (echo $LOCKFILE)
+        #kill (echo $LOCKFILE)
         rm -f $LOCKFILE
         
         echo "SimpleCronScheduler was successfully resetted"
