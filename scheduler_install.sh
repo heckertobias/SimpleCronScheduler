@@ -9,7 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if [ $# -eq 1 ] && [ $1 = "remove" ]
   then
-    echo "Do you really want to remove SimpleCronScheduler? (y = \"yes\", n = \"no\""
+    echo "Do you really want to remove SimpleCronScheduler? All script saved in $SCRIPTDIR and all output files saved in $OUTPUTDIR will be deleted to. (y = \"yes\", n = \"no\")"
     read yn
     
     # Uninstall
