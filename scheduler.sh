@@ -3,10 +3,17 @@
 # Scheduler controll script
 # Type --help or -h to get information about usage
 
-source ./config.sh
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-function help {
-  
+source "$DIR"/config.sh
+
+function schedhelp {
   echo "SimpleCronScheduler usage:"
   echo " scheduler add ?    - add a script placed in $SCRIPTDIR to the queue"
   echo " scheduler remove ? - removes all occurrence of ? from the queue"
@@ -23,7 +30,7 @@ if [ $# -eq 1 ]
         
         echo "SimpleCronScheduler was successfully resetted"
     else
-      help
+      schedhelp
     fi
 elif [ $# -eq 2 ]
   then
@@ -42,6 +49,8 @@ elif [ $# -eq 2 ]
       then
         echo "REMOVE is currently not implemented in SimpleCronScheduler"
     else
-      help
+      schedhelp
     fi
+else
+  schedhelp
 fi

@@ -44,7 +44,7 @@ else
   mkdir /var/scheduler
   mkdir /var/scheduler/scripts
   mkdir /var/scheduler/output
-  echo "" > /var/scheduler/scheduler.jobs
+  #echo "" > /var/scheduler/scheduler.jobs
   
   # setup controll script and cron-job
   chmod +x $DIR/scheduler.sh

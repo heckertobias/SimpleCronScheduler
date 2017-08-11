@@ -2,7 +2,9 @@
 
 # The Cron Script
 
-source ./config.sh
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+source "$DIR"/config.sh
 
 DATE=$(date +%Y%m%d%H%M)
 NEXT=$(head -n 1 $JOBFILE)
