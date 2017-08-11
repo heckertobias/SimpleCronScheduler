@@ -4,4 +4,7 @@ This is a simple scheduler that can run one job after another. Jobs are executed
 
 To install the scheduler make the file scheduler_install.sh executeable (chmod +x) and then run it.
 
-To add a job to the scheduler type scheduler add [jobname] into your shell. The jobname refers to a script that needs to be placed at /var/scheduler/scripts. After executing a script all ouput wil be saved at /var/scheduler/output and send via email (using mail command) to the email address entered during insallation.
+To add a job to the scheduler type scheduler add [jobname] into your shell. The jobname refers to a
+script that needs to be placed at /var/scheduler/scripts. After executing a script all ouput wil be
+saved at /var/scheduler/output and send via email (using mail command) to the email address entered
+during insallation.
